@@ -1,1 +1,849 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Mei Chin | Curriculum Vitae</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #eff6ff;
+      --primary-border: #bfdbfe;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --bg-page: #f1f5f9;
+      --bg-card: #ffffff;
+      --sidebar-bg: #f8fafc;
+      --border-color: #e2e8f0;
+      --radius: 12px;
+      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 24px 12px 60px;
+    }
+
+    /* Action bar */
+    .toolbar {
+      max-width: 900px;
+      margin: 0 auto 20px;
+      background: #ffffff;
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .toolbar-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: var(--text-main);
+      border-color: var(--border-color);
+    }
+    .btn-secondary:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .btn.active {
+      background-color: #fef08a;
+      border-color: #eab308;
+      color: #854d0e;
+    }
+
+    .theme-picker {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .theme-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 1px #cbd5e1;
+      transition: transform 0.15s ease;
+    }
+    .theme-dot:hover {
+      transform: scale(1.15);
+    }
+
+    /* Resume container */
+    .resume-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 290px 1fr;
+    }
+
+    /* Left Sidebar */
+    .sidebar {
+      background-color: var(--sidebar-bg);
+      border-right: 1px solid var(--border-color);
+      padding: 36px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .profile-header {
+      text-align: center;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, var(--primary), #93c5fd);
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.15);
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #ffffff;
+      display: block;
+    }
+
+    .profile-name {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .profile-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .sidebar-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sidebar-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--primary-border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.875rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-muted);
+      word-break: break-all;
+    }
+
+    .contact-item i {
+      color: var(--primary);
+      font-size: 0.95rem;
+      width: 16px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .contact-item a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .contact-item a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .skills-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .skill-category-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+
+    .language-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .language-level {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* Main Content */
+    .main-content {
+      padding: 36px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #f1f5f9;
+    }
+
+    .section-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+    }
+
+    .about-text {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    /* Timeline Items */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+    }
+
+    .timeline-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .item-role {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .item-company {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .item-date {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-light);
+      background: #f1f5f9;
+      padding: 3px 9px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .item-description {
+      list-style-position: inside;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      line-height: 1.65;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-left: 4px;
+    }
+
+    .item-description li {
+      list-style-type: disc;
+    }
+
+    /* Project Cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .project-card {
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 16px;
+      background: #ffffff;
+      transition: all 0.2s ease;
+    }
+    .project-card:hover {
+      border-color: var(--primary-border);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.05);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .project-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .project-link {
+      font-size: 0.8rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      line-height: 1.55;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .project-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .resume-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .main-content {
+        padding: 24px;
+      }
+      body {
+        padding: 12px 6px;
+      }
+    }
+
+    /* Print styles (A4 Optimization) */
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+        margin: 0;
+      }
+
+      .toolbar, .edit-indicator {
+        display: none !important;
+      }
+
+      .resume-wrapper {
+        max-width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        grid-template-columns: 270px 1fr;
+      }
+
+      .sidebar {
+        background-color: #f8fafc !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 24px 18px;
+      }
+
+      .main-content {
+        padding: 24px 24px;
+      }
+
+      .timeline-item, .project-card, .sidebar-section {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      @page {
+        size: A4;
+        margin: 8mm;
+      }
+    }
+
+    /* Live edit mode notification */
+    .edit-indicator {
+      display: none;
+      background: #fef08a;
+      color: #854d0e;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toolbar ?i廙 khi廙 -->
+  <div class="toolbar">
+    <div class="toolbar-title">
+      <i class="fa-solid fa-file-invoice" style="color: var(--primary);"></i>
+      <span>CV Builder ??Mei Chin</span>
+    </div>
+
+    <div class="toolbar-actions">
+      <!-- Theme colors -->
+      <div class="theme-picker" title="Ch廙 m?u ch廙??廕︽">
+        <div class="theme-dot" style="background: #2563eb;" onclick="setTheme('#2563eb', '#1d4ed8', '#eff6ff', '#bfdbfe')"></div>
+        <div class="theme-dot" style="background: #059669;" onclick="setTheme('#059669', '#047857', '#ecfdf5', '#a7f3d0')"></div>
+        <div class="theme-dot" style="background: #4f46e5;" onclick="setTheme('#4f46e5', '#4338ca', '#eef2ff', '#c7d2fe')"></div>
+        <div class="theme-dot" style="background: #0284c7;" onclick="setTheme('#0284c7', '#0369a1', '#f0f9ff', '#bae6fd')"></div>
+        <div class="theme-dot" style="background: #e11d48;" onclick="setTheme('#e11d48', '#be123c', '#fff1f2', '#fecdd3')"></div>
+      </div>
+
+      <!-- Quick Edit Button -->
+      <button class="btn btn-secondary" id="editToggleBtn" onclick="toggleEditMode()">
+        <i class="fa-solid fa-pen-to-square"></i> S廙苔 nhanh n廙 dung
+      </button>
+
+      <!-- Print / PDF Button -->
+      <button class="btn btn-primary" onclick="window.print()">
+        <i class="fa-solid fa-print"></i> In / Xu廕另 PDF
+      </button>
+    </div>
+  </div>
+
+  <div class="edit-indicator" id="editIndicator">
+    ??Ch廕??廙?ch廙h s廙苔 ?ang B廕曷: B廕》 c籀 th廙?nh廕叼 chu廙 tr廙帷 ti廕穆 v?o b廕另 k廙?d簷ng ch廙?n?o tr礙n CV ?廙?s廙苔 th繫ng tin! Nh廕叼 l廕【 "S廙苔 nhanh n廙 dung" khi ho?n t廕另.
+  </div>
+
+  <!-- N廙 dung CV -->
+  <div class="resume-wrapper" id="resumeContent">
+    
+    <!-- C廙 tr獺i: Th繫ng tin c獺 nh璽n & K廙?n?ng -->
+    <aside class="sidebar">
+      
+      <!-- Profile / Avatar -->
+      <div class="profile-header">
+        <div class="avatar-wrapper">
+          <img src="https://avatars.githubusercontent.com/u/338122076?v=4" alt="Mei Chin Avatar" class="avatar-img" id="avatarImage">
+        </div>
+        <h1 class="profile-name">Mei Chin</h1>
+        <p class="profile-title">Chuy礙n Vi礙n Ph獺t Tri廙 Ph廕吵 M廙</p>
+      </div>
+
+      <!-- Th繫ng tin li礙n h廙?-->
+      <div class="sidebar-section">
+        <h2 class="sidebar-title">
+          <i class="fa-solid fa-address-card"></i> Li礙n H廙?        </h2>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:meichin1406@example.com">meichin1406@example.com</a>
+          </li>
+          <li class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>(+84) 912 345 678</span>
+          </li>
+          <li class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>H? N廙 / TP. H廙?Ch穩 Minh</span>
+          </li>
+          <li class="contact-item">
+            <i class="fa-brands fa-github"></i>
+            <a href="https://github.com/MeiChin1406" target="_blank">github.com/MeiChin1406</a>
+          </li>
+          <li class="contact-item">
+            <i class="fa-brands fa-linkedin"></i>
+            <a href="https://linkedin.com/in/meichin" target="_blank">linkedin.com/in/meichin</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- K廙?n?ng -->
+      <div class="sidebar-section">
+        <h2 class="sidebar-title">
+          <i class="fa-solid fa-screwdriver-wrench"></i> K廙?N?ng
+        </h2>
+        
+        <div class="skills-group">
+          <span class="skill-category-label">Chuy礙n M繫n & C繫ng Ngh廙?/span>
+          <div class="badges">
+            <span class="badge">JavaScript / TypeScript</span>
+            <span class="badge">HTML5 / CSS3</span>
+            <span class="badge">React / Vue.js</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">Python</span>
+            <span class="badge">Git / GitHub</span>
+            <span class="badge">RESTful APIs</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <span class="skill-category-label">K廙?N?ng M廙</span>
+          <div class="badges">
+            <span class="badge">L?m vi廙 nh籀m</span>
+            <span class="badge">Gi廕ξ quy廕篙 v廕叩 ?廙?/span>
+            <span class="badge">T duy logic</span>
+            <span class="badge">Qu廕τ l羸 th廙 gian</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ng繫n ng廙?-->
+      <div class="sidebar-section">
+        <h2 class="sidebar-title">
+          <i class="fa-solid fa-globe"></i> Ng繫n Ng廙?        </h2>
+        <div class="language-item">
+          <span>Ti廕積g Vi廙</span>
+          <span class="language-level">B廕τ ng廙?/span>
+        </div>
+        <div class="language-item">
+          <span>Ti廕積g Anh</span>
+          <span class="language-level">Th?nh th廕︽ (TOEIC 750+)</span>
+        </div>
+      </div>
+
+      <!-- Ch廙姊g ch廙?-->
+      <div class="sidebar-section">
+        <h2 class="sidebar-title">
+          <i class="fa-solid fa-award"></i> Ch廙姊g Ch廙?        </h2>
+        <div style="font-size: 0.85rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px;">
+          <div>
+            <div style="font-weight: 600; color: var(--text-main);">Full Stack Web Development</div>
+            <div style="font-size: 0.78rem; color: var(--text-light);">Coursera / 2025</div>
+          </div>
+          <div>
+            <div style="font-weight: 600; color: var(--text-main);">Git & GitHub Professional Certificate</div>
+            <div style="font-size: 0.78rem; color: var(--text-light);">Google Career Certificates / 2024</div>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- C廙 ph廕ξ: Chi ti廕篙 kinh nghi廙 & H廙 v廕叩 -->
+    <main class="main-content">
+      
+      <!-- M廙卉 ti礙u ngh廙?nghi廙 / Gi廙 thi廙 -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <h2 class="section-title">Gi廙 Thi廙 B廕τ Th璽n</h2>
+        </div>
+        <p class="about-text">
+          Chuy礙n vi礙n ?am m礙 ph獺t tri廙 s廕τ ph廕姓 c繫ng ngh廙?v? x璽y d廙彫g c獺c gi廕ξ ph獺p t廙 u cho ng廙 d羅ng. C籀 n廙 t廕τg v廙疸g ch廕畚 v廙?t duy gi廕ξ thu廕負, thi廕篙 k廕?giao di廙 th璽n thi廙 v? quy tr穫nh ph獺t tri廙 ph廕吵 m廙 hi廙 ?廕【. M廙卉 ti礙u kh繫ng ng廙南g h廙 h廙 c獺c c繫ng ngh廙?m廙, ?籀ng g籀p v?o s廙?ph獺t tri廙 c廙吧 t廙?ch廙妾 v? h廙g t廙 tr廙?th?nh Senior Software Engineer trong 3 n?m t廙.
+        </p>
+      </section>
+
+      <!-- Kinh nghi廙 l?m vi廙 -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <h2 class="section-title">Kinh Nghi廙 L?m Vi廙</h2>
+        </div>
+
+        <div class="timeline">
+          <!-- C繫ng vi廙 1 -->
+          <div class="timeline-item">
+            <div class="item-top">
+              <div>
+                <div class="item-role">Software Developer</div>
+                <div class="item-company">Tech Solutions Vietnam</div>
+              </div>
+              <span class="item-date">2024 - Hi廙 t廕【</span>
+            </div>
+            <ul class="item-description">
+              <li>Tham gia ph獺t tri廙 c獺c t穩nh n?ng front-end v? back-end cho n廙 t廕τg qu廕τ l羸 tr廙帷 tuy廕積 ph廙卉 v廙?hn 50.000 ng廙 d羅ng h?ng th獺ng.</li>
+              <li>T廙 u h籀a hi廙 n?ng 廙姊g d廙叩g web, gi廕σ th廙 gian t廕ξ trang trung b穫nh t廙?3.2s xu廙g 1.5s.</li>
+              <li>Ph廙 h廙φ c羅ng ?廙 ng觼 thi廕篙 k廕?UI/UX v? QA ?廙?ho?n th?nh c獺c ?廙ㄅ ph獺t h?nh s廕τ ph廕姓 ?繳ng ti廕積 ?廙?(Agile/Scrum).</li>
+              <li>X璽y d廙彫g v? t穩ch h廙φ c獺c RESTful APIs b廕υ m廕負, ?廙g b廙?d廙?li廙 th廙 gian th廙帷.</li>
+            </ul>
+          </div>
+
+          <!-- C繫ng vi廙 2 -->
+          <div class="timeline-item">
+            <div class="item-top">
+              <div>
+                <div class="item-role">Junior Web Developer</div>
+                <div class="item-company">Digital Agency Global</div>
+              </div>
+              <span class="item-date">2023 - 2024</span>
+            </div>
+            <ul class="item-description">
+              <li>X璽y d廙彫g v? b廕υ tr穫 hn 10 trang web v廙?tinh cho kh獺ch h?ng doanh nghi廙 s廙?d廙叩g HTML5, CSS3, JavaScript.</li>
+              <li>?廕σ b廕υ t穩nh chu廕姊 x獺c Responsive tr礙n ?a thi廕篙 b廙?(Desktop, Tablet, Mobile) v? ?廕﹀ ?i廙 s廙?SEO cao tr礙n Google Lighthouse.</li>
+              <li>H廙?tr廙?x廙?l羸 l廙 k廙?thu廕負, t穩ch h廙φ c廙g thanh to獺n v? bi廙 m廕哎 thu th廕計 ph廕τ h廙 kh獺ch h?ng.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- H廙 v廕叩 -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <h2 class="section-title">H廙 V廕叩</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="item-top">
+              <div>
+                <div class="item-role">C廙?nh璽n C繫ng ngh廙?Th繫ng tin</div>
+                <div class="item-company">?廕【 h廙 Khoa h廙 T廙?nhi礙n / B獺ch Khoa</div>
+              </div>
+              <span class="item-date">2020 - 2024</span>
+            </div>
+            <ul class="item-description">
+              <li>X廕穆 lo廕【 t廙 nghi廙: Gi廙 (GPA: 3.5/4.0).</li>
+              <li>?廙?t?i t廙 nghi廙: "X璽y d廙彫g h廙?th廙g qu廕τ l羸 v? tng t獺c tr廙帷 tuy廕積 th繫ng minh".</li>
+              <li>H廙 b廙g khuy廕積 kh穩ch h廙 t廕計 3 k廙?li礙n ti廕穆.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- D廙?獺n ti礙u bi廙 -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fa-solid fa-diagram-project"></i>
+          </div>
+          <h2 class="section-title">D廙??n Ti礙u Bi廙</h2>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-name">Trang Web CV & Portfolio C獺 Nh璽n</span>
+              <a href="https://github.com/MeiChin1406/resume" target="_blank" class="project-link">
+                <i class="fa-brands fa-github"></i> Xem Repo
+              </a>
+            </div>
+            <p class="project-desc">
+              Thi廕篙 k廕?trang CV tng t獺c hi廙 ?廕【, h廙?tr廙?xu廕另 chu廕姊 in 廕叩 A4/PDF, chuy廙 ?廙 m?u giao di廙 v? ch廙h s廙苔 n廙 dung tr廙帷 ti廕穆 tr礙n tr穫nh duy廙.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">CSS3 Grid/Flex</span>
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">GitHub Pages</span>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-name">H廙?Th廙g Qu廕τ L羸 ?n H?ng & Kho H?ng</span>
+              <span class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</span>
+            </div>
+            <p class="project-desc">
+              廙盯g d廙叩g web cho ph矇p doanh nghi廙 v廙冠 v? nh廙?theo d繭i xu廕另 nh廕計 kho, ph璽n quy廙 ng廙 d羅ng v? l廕計 b獺o c獺o doanh thu tr廙帷 quan.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">MongoDB</span>
+              <span class="project-tag">Tailwind CSS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    // ?廙 m?u ch廙??廕︽
+    function setTheme(primary, dark, light, border) {
+      document.documentElement.style.setProperty('--primary', primary);
+      document.documentElement.style.setProperty('--primary-dark', dark);
+      document.documentElement.style.setProperty('--primary-light', light);
+      document.documentElement.style.setProperty('--primary-border', border);
+    }
+
+    // B廕負/t廕眩 ch廕??廙?s廙苔 tr廙帷 ti廕穆
+    let isEditing = false;
+    function toggleEditMode() {
+      isEditing = !isEditing;
+      const content = document.getElementById('resumeContent');
+      const btn = document.getElementById('editToggleBtn');
+      const indicator = document.getElementById('editIndicator');
+
+      if (isEditing) {
+        content.setAttribute('contenteditable', 'true');
+        btn.classList.add('active');
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Lu & Kh籀a ch廙h s廙苔';
+        indicator.style.display = 'block';
+      } else {
+        content.removeAttribute('contenteditable');
+        btn.classList.remove('active');
+        btn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> S廙苔 nhanh n廙 dung';
+        indicator.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
 
