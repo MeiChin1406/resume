@@ -1,5 +1,1229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Lâm Mỹ Kim (林美金 / Mei Chin) | Curriculum Vitae</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #f0f9ff;
+      --primary-border: #bae6fd;
+      --accent: #059669;
+      --text-main: #0f172a;
+      --text-muted: #334155;
+      --text-light: #64748b;
+      --bg-page: #f1f5f9;
+      --bg-card: #ffffff;
+      --sidebar-bg: #f8fafc;
+      --border-color: #e2e8f0;
+      --radius: 12px;
+      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 24px 12px 60px;
+    }
+
+    /* Action bar */
+    .toolbar {
+      max-width: 960px;
+      margin: 0 auto 20px;
+      background: #ffffff;
+      padding: 14px 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .toolbar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .lang-switcher {
+      display: flex;
+      background: #f1f5f9;
+      border-radius: 8px;
+      padding: 3px;
+      border: 1px solid var(--border-color);
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      padding: 5px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-light);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn.active {
+      background: #ffffff;
+      color: var(--primary-dark);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: var(--text-main);
+      border-color: var(--border-color);
+    }
+    .btn-secondary:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .btn.active {
+      background-color: #fef08a;
+      border-color: #eab308;
+      color: #854d0e;
+    }
+
+    .theme-picker {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .theme-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 1px #cbd5e1;
+      transition: transform 0.15s ease;
+    }
+    .theme-dot:hover {
+      transform: scale(1.15);
+    }
+
+    /* Resume container */
+    .resume-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 310px 1fr;
+    }
+
+    /* Left Sidebar */
+    .sidebar {
+      background-color: var(--sidebar-bg);
+      border-right: 1px solid var(--border-color);
+      padding: 36px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .profile-header {
+      text-align: center;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 136px;
+      height: 136px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, var(--primary), #38bdf8);
+      box-shadow: 0 8px 18px rgba(2, 132, 199, 0.2);
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #ffffff;
+      display: block;
+    }
+
+    .profile-name {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 2px;
+    }
+
+    .profile-subname {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+
+    .profile-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--primary-light);
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--primary-border);
+    }
+
+    .sidebar-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sidebar-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--primary-border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      font-size: 0.875rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .contact-item i {
+      color: var(--primary);
+      font-size: 0.95rem;
+      width: 18px;
+      margin-top: 3px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .contact-item a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .contact-item a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .info-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .skills-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .skill-category-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+
+    .badge.highlight {
+      background: var(--primary-light);
+      border-color: var(--primary-border);
+      color: var(--primary-dark);
+    }
+
+    .language-box {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .language-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .language-level {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* Main Content */
+    .main-content {
+      padding: 36px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #f1f5f9;
+    }
+
+    .section-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+    }
+
+    .about-text {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    /* Target Job Cards / Preferences */
+    .target-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    .target-card {
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .target-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .target-value {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* Timeline Items */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+    }
+
+    .timeline-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-left: 20px;
+      border-left: 2px solid var(--primary-border);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 2px var(--primary-border);
+    }
+
+    .item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .item-role {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .item-company {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .company-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-light);
+      background: #f1f5f9;
+      padding: 1px 7px;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+    }
+
+    .item-date {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-light);
+      background: #f1f5f9;
+      padding: 3px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .item-date.current {
+      color: var(--primary-dark);
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+    }
+
+    .item-description {
+      list-style-position: outside;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding-left: 18px;
+    }
+
+    .item-description li {
+      list-style-type: disc;
+    }
+
+    /* Strength Cards */
+    .strengths-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .strength-card {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px 14px;
+      background: #ffffff;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .strength-card i {
+      color: var(--primary);
+      font-size: 1.1rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .strength-card h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .strength-card p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      line-height: 1.45;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .resume-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .main-content {
+        padding: 24px;
+      }
+      body {
+        padding: 12px 6px;
+      }
+    }
+
+    /* Print styles (A4 Optimization) */
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+        margin: 0;
+      }
+
+      .toolbar, .edit-indicator {
+        display: none !important;
+      }
+
+      .resume-wrapper {
+        max-width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        grid-template-columns: 280px 1fr;
+      }
+
+      .sidebar {
+        background-color: #f8fafc !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 24px 18px;
+      }
+
+      .main-content {
+        padding: 24px 24px;
+      }
+
+      .timeline-item, .target-card, .strength-card, .sidebar-section {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      @page {
+        size: A4;
+        margin: 8mm;
+      }
+    }
+
+    /* Live edit mode notification */
+    .edit-indicator {
+      display: none;
+      background: #fef08a;
+      color: #854d0e;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      text-align: center;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toolbar điều khiển -->
+  <div class="toolbar">
+    <div class="toolbar-title">
+      <i class="fa-solid fa-id-card" style="color: var(--primary); font-size: 1.1rem;"></i>
+      <span>Lâm Mỹ Kim (林美金) &#8226; CV & Hồ Sơ Xin Việc</span>
+    </div>
+
+    <div class="toolbar-actions">
+      <!-- Language Switcher -->
+      <div class="lang-switcher" title="Chuyển ngôn ngữ / 切換語言">
+        <button class="lang-btn active" id="btnVi" onclick="switchLanguage('vi')">Tiếng Việt</button>
+        <button class="lang-btn" id="btnZh" onclick="switchLanguage('zh')">繁體中文</button>
+      </div>
+
+      <!-- Theme colors -->
+      <div class="theme-picker" title="Chọn màu chủ đạo">
+        <div class="theme-dot" style="background: #0284c7;" onclick="setTheme('#0284c7', '#0369a1', '#f0f9ff', '#bae6fd')"></div>
+        <div class="theme-dot" style="background: #059669;" onclick="setTheme('#059669', '#047857', '#ecfdf5', '#a7f3d0')"></div>
+        <div class="theme-dot" style="background: #2563eb;" onclick="setTheme('#2563eb', '#1d4ed8', '#eff6ff', '#bfdbfe')"></div>
+        <div class="theme-dot" style="background: #7c3aed;" onclick="setTheme('#7c3aed', '#6d28d9', '#f5f3ff', '#ddd6fe')"></div>
+        <div class="theme-dot" style="background: #e11d48;" onclick="setTheme('#e11d48', '#be123c', '#fff1f2', '#fecdd3')"></div>
+      </div>
+
+      <!-- Quick Edit Button -->
+      <button class="btn btn-secondary" id="editToggleBtn" onclick="toggleEditMode()">
+        <i class="fa-solid fa-pen-to-square"></i> <span id="btnEditText">Sửa nhanh nội dung</span>
+      </button>
+
+      <!-- Print / PDF Button -->
+      <button class="btn btn-primary" onclick="window.print()">
+        <i class="fa-solid fa-print"></i> <span id="btnPrintText">In / Xuất PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="edit-indicator" id="editIndicator">
+    ⚡ <strong>Chế độ chỉnh sửa đang BẬT:</strong> Bạn có thể nhấp chuột trực tiếp vào bất kỳ dòng chữ nào trên CV để sửa hoặc bổ sung số điện thoại / email cá nhân! Nhấp lại "Lưu & Khóa chỉnh sửa" khi hoàn tất.
+  </div>
+
+  <!-- Nội dung CV (Hỗ trợ Song ngữ Tiếng Việt & Phồn Thể Đài Loan theo mẫu 104) -->
+  <div class="resume-wrapper" id="resumeContent">
+    
+    <!-- Cột trái: Thông tin cá nhân & Kỹ năng -->
+    <aside class="sidebar">
+      
+      <!-- Profile / Avatar -->
+      <div class="profile-header">
+        <div class="avatar-wrapper">
+          <img src="https://avatars.githubusercontent.com/u/338122076?v=4" alt="Lin Mei-jin Avatar" class="avatar-img" id="avatarImage">
+        </div>
+        <h1 class="profile-name" id="cvName">Lâm Mỹ Kim</h1>
+        <p class="profile-subname" id="cvChineseName">林美金 (Mei Chin)</p>
+        <span class="profile-title" id="cvRoleTitle">Thao Tác Viên &#8226; 作業員</span>
+      </div>
+
+      <!-- Thông tin liên hệ & Cơ bản -->
+      <div class="sidebar-section">
+        <h2 class="sidebar-title">
+          <i class="fa-solid fa-address-card"></i> <span id="secTitleContact">Thông Tin Cá Nhân</span>
+        </h2>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <i class="fa-solid fa-venus"></i>
+            <div>
+              <strong id="lblGender">Giới tính:</strong> <span id="valGender">Nữ (sinh năm 2000, 26 tuổi)</span>
+            </div>
+          </li>
+          <li class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <strong id="lblLocation">Nơi ở hiện tại:</strong><br>
+              <span id="valLocation">Đường Hiệp Đồng, Khu Trung Lịch, TP. Đào Viên, Đài Loan<br>(桃園市中壢區 協同街)</span>
+            </div>
+          </li>
+          <li class="contact-item">
+            <i class="fa-solid fa-motorcycle"></i>
+            <div>
+              <strong id="lblLicense">Bằng lái & Xe:</strong><br>
+              <span id="valLicense">Bằng lái xe máy hạng nặng (普通重型機車駕照) & Có xe máy riêng</span>
+            </div>
+          </li>
+          <li class="contact-item">
+            <i class="fa-solid fa-clock"></i>
+            <div>
+              <strong id="lblExperience">Tổng thâm niên:</strong> <span id="valExperience">5 ~ 6 năm kinh nghiệm</span>
+            </div>
+          </li>
+          <li class="contact-item">
+            <i class="fa-solid fa-circle-check" style="color: var(--accent);"></i>
+            <div>
+              <strong id="lblJobStatus">Trạng thái:</strong> <span id="valJobStatus">Đang đi làm (Sẵn sàng nhận việc mới)</span>
+            </div>
+          </li>
+          <li class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <strong id="lblPhone">Số điện thoại:</strong><br>
+              <span id="valPhone" style="color: var(--text-light); font-style: italic;">(Bấm nút Sửa để điền số ĐT Đài Loan)</span>
+            </div>
+          </li>
+          <li class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <strong id="lblEmail">Email:</strong><br>
+              <span id="valEmail" style="color: var(--text-light); font-style: italic;">(Bấm nút Sửa để điền email)</span>
+            </div>
+          </li>
+          <li class="contact-item">
+            <i class="fa-brands fa-github"></i>
+            <div>
+              <strong>GitHub:</strong><br>
+              <a href="https://github.com/MeiChin1406" target="_blank">github.com/MeiChin1406</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Ngôn ngữ -->
+      <div class="sidebar-section">
+        <h2 class="sidebar-title">
+          <i class="fa-solid fa-language"></i> <span id="secTitleLang">Ngoại Ngữ & Ngôn Ngữ</span>
+        </h2>
+        <div class="language-box">
+          <div class="language-item">
+            <div>
+              <strong id="lang1Name">Tiếng Việt (越文)</strong>
+              <div style="font-size: 0.75rem; color: var(--text-light);" id="lang1Sub">Tiếng mẹ đẻ (精通)</div>
+            </div>
+            <span class="language-level" id="lang1Level">Tinh thông</span>
+          </div>
+          <div style="height: 1px; background: #e2e8f0;"></div>
+          <div class="language-item">
+            <div>
+              <strong id="lang2Name">Tiếng Trung (中文)</strong>
+              <div style="font-size: 0.75rem; color: var(--text-light);" id="lang2Sub">Giao tiếp tốt 5+ năm tại Đài Loan</div>
+            </div>
+            <span class="language-level" id="lang2Level">Giao tiếp tốt</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kỹ năng & Năng lực làm việc -->
+      <div class="sidebar-section">
+        <h2 class="sidebar-title">
+          <i class="fa-solid fa-screwdriver-wrench"></i> <span id="secTitleSkills">Kỹ Năng & Nghiệp Vụ</span>
+        </h2>
+        
+        <div class="skills-group">
+          <span class="skill-category-label" id="lblSkillProd">Sản xuất & Vận hành</span>
+          <div class="badges">
+            <span class="badge highlight" id="badgeCleanroom">Quy trình phòng sạch (Cleanroom)</span>
+            <span class="badge" id="badgeESD">Trang phục phòng sạch & Chống tĩnh điện ESD</span>
+            <span class="badge" id="badgeOper">Thao tác dây chuyền (作業員)</span>
+            <span class="badge" id="badgePack">Đóng gói & Phân loại linh kiện (包裝員)</span>
+            <span class="badge" id="badge5S">Thực hành chuẩn 5S & An toàn LĐ</span>
+            <span class="badge" id="badgeQC">Kiểm tra ngoại quan (Visual Inspection)</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <span class="skill-category-label" id="lblSkillRetail">Bán lẻ & Phục vụ</span>
+          <div class="badges">
+            <span class="badge" id="badgePOS">Thu ngân & Quản lý máy POS</span>
+            <span class="badge" id="badgeStock">Kiểm kê & Trưng bày hàng hóa</span>
+            <span class="badge" id="badgeCS">Chăm sóc khách hàng (門市服務)</span>
+            <span class="badge" id="badgeFood">Pha chế thức uống & Thức ăn nhanh</span>
+            <span class="badge" id="badgeParcel">Giao nhận bưu kiện EC</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <span class="skill-category-label" id="lblSkillSoft">Tác phong & Phẩm chất</span>
+          <div class="badges">
+            <span class="badge" id="badgeCareful">Tỉ mỉ, cẩn thận, chịu khó</span>
+            <span class="badge" id="badgeShift">Chịu được áp lực ca kíp</span>
+            <span class="badge" id="badgeTeam">Làm việc nhóm & Giao tiếp lịch thiệp</span>
+            <span class="badge" id="badgeTime">Đúng giờ, kỷ luật cao</span>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- Cột phải: Chi tiết kinh nghiệm, mục tiêu & Học vấn -->
+    <main class="main-content">
+      
+      <!-- Giới thiệu bản thân -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fa-solid fa-user-check"></i>
+          </div>
+          <h2 class="section-title" id="secTitleAbout">Tóm Tắt Bản Thân & Mục Tiêu</h2>
+        </div>
+        <p class="about-text" id="descAbout">
+          Tôi đã có hơn <strong>5 năm kinh nghiệm làm việc thực tế tại Đài Loan</strong>, bao gồm hơn 3 năm làm việc trong môi trường <strong>nhà máy sản xuất bán dẫn quy mô lớn</strong> (>500 nhân sự) và hơn 1 năm làm nhân viên bán hàng chuỗi cửa hàng tiện lợi <strong>Hi-Life (萊爾富)</strong>. Tôi nắm vững quy trình thao tác phòng sạch (Cleanroom), trang phục tĩnh điện ESD, đóng gói, kiểm tra ngoại quan sản phẩm và tuân thủ nghiêm ngặt tiêu chuẩn 5S. Khả năng giao tiếp tiếng Trung tốt, thái độ làm việc chăm chỉ, cẩn thận, có trách nhiệm cao, thích nghi nhanh với công việc theo ca và luôn sẵn sàng tăng ca khi công ty có nhu cầu.
+        </p>
+      </section>
+
+      <!-- Điều kiện & Nguyện vọng tìm việc (Theo mẫu 104) -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <h2 class="section-title" id="secTitleTarget">Nguyện Vọng & Điều Kiện Làm Việc (希望職缺)</h2>
+        </div>
+
+        <div class="target-grid">
+          <div class="target-card">
+            <span class="target-label" id="lblTargetTitle">Vị trí mong muốn (希望職稱)</span>
+            <span class="target-value" id="valTargetTitle">Thao tác viên sản xuất (作業員) / Đóng gói (包裝員) / Phục vụ (餐飲服務生) / Nhân viên cây xăng (加油員)</span>
+          </div>
+          <div class="target-card">
+            <span class="target-label" id="lblTargetType">Hình thức & Ca làm việc</span>
+            <span class="target-value" id="valTargetType">Toàn thời gian (全職) &#8226; Ca ngày (日班), Ca cuối tuần (假日班), sẵn sàng luân ca</span>
+          </div>
+          <div class="target-card">
+            <span class="target-label" id="lblTargetArea">Khu vực ưu tiên</span>
+            <span class="target-value" id="valTargetArea">TP. Đào Viên - Khu Trung Lịch (桃園市中壢區) & các khu vực lân cận</span>
+          </div>
+          <div class="target-card">
+            <span class="target-label" id="lblTargetSalary">Mức lương & Ngày nhận việc</span>
+            <span class="target-value" id="valTargetSalary">Lương thỏa thuận / Theo quy định công ty (依公司規定) &#8226; Có thể đi làm ngay sau trúng tuyển</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kinh nghiệm làm việc chi tiết (104 Job Bank experiences) -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fa-solid fa-industry"></i>
+          </div>
+          <h2 class="section-title" id="secTitleExp">Kinh Nghiệm Làm Việc (工作經歷)</h2>
+        </div>
+
+        <div class="timeline">
+          <!-- Công việc 1: Nhà máy Bán Dẫn -->
+          <div class="timeline-item">
+            <div class="item-top">
+              <div>
+                <div class="item-role" id="exp1Role">Thao Tác Viên Sản Xuất & Đóng Gói (作業員 / 包裝員)</div>
+                <div class="item-company">
+                  <span id="exp1Company">Công ty Sản xuất Bán dẫn (半導體製造業)</span>
+                  <span class="company-tag" id="exp1Scale">Quy mô >500 người</span>
+                  <span class="company-tag" id="exp1Loc">Khu Trung Lịch, TP. Đào Viên</span>
+                </div>
+              </div>
+              <span class="item-date current" id="exp1Date">03/2021 - Hiện tại (Hơn 5 năm)</span>
+            </div>
+            <ul class="item-description" id="exp1Desc">
+              <li><strong>Môi trường làm việc:</strong> Thực hiện công việc trong phòng sạch (Cleanroom), mặc trang phục vô trùng và chống tĩnh điện ESD, tuân thủ nghiêm ngặt quy định an toàn vệ sinh lao động và tiêu chuẩn 5S.</li>
+              <li><strong>Vận hành máy móc:</strong> Thao tác máy móc trên dây chuyền sản xuất linh kiện vi mạch/bán dẫn theo đúng bảng hướng dẫn công việc chuẩn (SOP).</li>
+              <li><strong>Kiểm soát chất lượng:</strong> Kiểm tra ngoại quan sản phẩm (Visual Inspection), phát hiện và phân loại các sản phẩm lỗi, trầy xước hoặc không đạt chuẩn trước khi chuyển công đoạn tiếp theo.</li>
+              <li><strong>Đóng gói & Bàn giao:</strong> Thực hiện quy trình đếm số lượng, dán nhãn mã vạch (Barcode), đóng gói sản phẩm hoàn thiện vào khay/hộp chuyên dụng đảm bảo không xảy ra hư hại.</li>
+              <li><strong>Tính kỷ luật:</strong> Đảm bảo chỉ tiêu sản lượng (UPH) hàng ngày, phối hợp ăn ý với đồng nghiệp và báo cáo kịp thời cho trưởng ca khi xảy ra sự cố bất thường.</li>
+            </ul>
+          </div>
+
+          <!-- Công việc 2: Cửa hàng tiện lợi Hi-Life -->
+          <div class="timeline-item">
+            <div class="item-top">
+              <div>
+                <div class="item-role" id="exp2Role">Nhân Viên Bán Hàng & Thu Ngân (門市店員 / 專櫃人員)</div>
+                <div class="item-company">
+                  <span id="exp2Company">Công ty CP Quốc tế Hi-Life (萊爾富國際股份有限公司)</span>
+                  <span class="company-tag" id="exp2Scale">Chuỗi Bán lẻ Tiện lợi</span>
+                  <span class="company-tag" id="exp2Loc">Khu Dương Mai, TP. Đào Viên</span>
+                </div>
+              </div>
+              <span class="item-date" id="exp2Date">10/2019 - 02/2021 (1 năm 5 tháng)</span>
+            </div>
+            <ul class="item-description" id="exp2Desc">
+              <li><strong>Thu ngân & Thanh toán:</strong> Vận hành hệ thống máy tính tiền POS, xử lý thanh toán tiền mặt, thẻ EasyCard, ví điện tử, thanh toán hóa đơn tiện ích và nạp tiền nhanh chóng, chính xác.</li>
+              <li><strong>Dịch vụ khách hàng:</strong> Chào đón khách hàng bằng tiếng Trung thân thiện, tư vấn chương trình khuyến mãi, giải đáp thắc mắc và hỗ trợ khách hàng mua sắm.</li>
+              <li><strong>Quản lý hàng hóa:</strong> Tiếp nhận hàng nhập kho từ xe giao vận, kiểm đếm số lượng, sắp xếp bổ sung hàng lên kệ theo nguyên tắc nhập trước xuất trước (FIFO), kiểm tra hạn sử dụng (hàng hết hạn).</li>
+              <li><strong>Dịch vụ ăn uống:</strong> Pha chế cà phê (Hi Café), làm nóng thức ăn nhanh, nấu khoai lang nướng, châm nước canh oden đảm bảo an toàn vệ sinh thực phẩm.</li>
+              <li><strong>Giao nhận bưu kiện:</strong> Quản lý tiếp nhận bưu kiện thương mại điện tử (Shopee, Momo...), phân loại và trả bưu phẩm cho khách hàng đúng quy trình.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Học vấn (Education) -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <h2 class="section-title" id="secTitleEdu">Học Vấn (學歷)</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="item-top">
+              <div>
+                <div class="item-role" id="eduRole">Tốt Nghiệp Trung Học Phổ Thông (高中畢業 - Ban Tự Nhiên / 自然組)</div>
+                <div class="item-company" id="eduSchool">Trường Trung Học Phổ Thông tại Việt Nam (越南)</div>
+              </div>
+              <span class="item-date" id="eduDate">09/2006 - 06/2018</span>
+            </div>
+            <ul class="item-description" id="eduDesc">
+              <li>Trình độ học vấn cao nhất: Tốt nghiệp Trung học phổ thông (高中普通科).</li>
+              <li>Chuyên ban: Tự nhiên (Toán, Vật lý, Hóa học, Sinh học).</li>
+              <li>Rèn luyện tư duy cẩn thận, logic và tinh thần ham học hỏi, cầu tiến.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Điểm mạnh nổi bật (Strengths) -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <h2 class="section-title" id="secTitleStrengths">Thế Mạnh Làm Việc</h2>
+        </div>
+
+        <div class="strengths-grid">
+          <div class="strength-card">
+            <i class="fa-solid fa-bolt"></i>
+            <div>
+              <h4 id="str1Title">Thao Tác Nhanh Nhẹn</h4>
+              <p id="str1Desc">Khéo tay, thao tác dây chuyền chuẩn xác, nắm bắt quy trình làm việc mới rất nhanh.</p>
+            </div>
+          </div>
+          <div class="strength-card">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div>
+              <h4 id="str2Title">Kỷ Luật & An Toàn</h4>
+              <p id="str2Desc">Nghiêm túc tuân thủ quy chuẩn phòng sạch, bảo hộ lao động và quy tắc an toàn công xưởng.</p>
+            </div>
+          </div>
+          <div class="strength-card">
+            <i class="fa-solid fa-comments"></i>
+            <div>
+              <h4 id="str3Title">Tiếng Trung Thực Tế</h4>
+              <p id="str3Desc">Giao tiếp tốt với cấp trên, đồng nghiệp Đài Loan và phục vụ khách hàng lịch thiệp.</p>
+            </div>
+          </div>
+          <div class="strength-card">
+            <i class="fa-solid fa-person-walking-luggage"></i>
+            <div>
+              <h4 id="str4Title">Sẵn Sàng Đi Làm Ngay</h4>
+              <p id="str4Desc">Có xe máy tự túc đi lại, sức khỏe dẻo dai, sẵn sàng làm ca ngày, ca kíp và tăng ca.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    // Dữ liệu Song ngữ (Tiếng Việt & Phồn thể Đài Loan theo chuẩn 104)
+    const contentData = {
+      vi: {
+        cvName: "Lâm Mỹ Kim",
+        cvChineseName: "林美金 (Mei Chin)",
+        cvRoleTitle: "Thao Tác Viên • 作業員",
+        secTitleContact: "Thông Tin Cá Nhân",
+        lblGender: "Giới tính:",
+        valGender: "Nữ (sinh năm 2000, 26 tuổi)",
+        lblLocation: "Nơi ở hiện tại:",
+        valLocation: "Đường Hiệp Đồng, Khu Trung Lịch, TP. Đào Viên, Đài Loan<br>(桃園市中壢區 協同街)",
+        lblLicense: "Bằng lái & Xe:",
+        valLicense: "Bằng lái xe máy hạng nặng (普通重型機車駕照) & Có xe máy riêng",
+        lblExperience: "Tổng thâm niên:",
+        valExperience: "5 ~ 6 năm kinh nghiệm",
+        lblJobStatus: "Trạng thái:",
+        valJobStatus: "Đang đi làm (Sẵn sàng nhận việc mới)",
+        lblPhone: "Số điện thoại:",
+        valPhone: "(Bấm nút Sửa để điền số ĐT Đài Loan)",
+        lblEmail: "Email:",
+        valEmail: "(Bấm nút Sửa để điền email)",
+        secTitleLang: "Ngoại Ngữ & Ngôn Ngữ",
+        lang1Name: "Tiếng Việt (越文)",
+        lang1Sub: "Tiếng mẹ đẻ (精通)",
+        lang1Level: "Tinh thông",
+        lang2Name: "Tiếng Trung (中文)",
+        lang2Sub: "Giao tiếp tốt 5+ năm tại Đài Loan",
+        lang2Level: "Giao tiếp tốt",
+        secTitleSkills: "Kỹ Năng & Nghiệp Vụ",
+        lblSkillProd: "Sản xuất & Vận hành",
+        badgeCleanroom: "Quy trình phòng sạch (Cleanroom)",
+        badgeESD: "Trang phục phòng sạch & Chống tĩnh điện ESD",
+        badgeOper: "Thao tác dây chuyền (作業員)",
+        badgePack: "Đóng gói & Phân loại linh kiện (包裝員)",
+        badge5S: "Thực hành chuẩn 5S & An toàn LĐ",
+        badgeQC: "Kiểm tra ngoại quan (Visual Inspection)",
+        lblSkillRetail: "Bán lẻ & Phục vụ",
+        badgePOS: "Thu ngân & Quản lý máy POS",
+        badgeStock: "Kiểm kê & Trưng bày hàng hóa",
+        badgeCS: "Chăm sóc khách hàng (門市服務)",
+        badgeFood: "Pha chế thức uống & Thức ăn nhanh",
+        badgeParcel: "Giao nhận bưu kiện EC",
+        lblSkillSoft: "Tác phong & Phẩm chất",
+        badgeCareful: "Tỉ mỉ, cẩn thận, chịu khó",
+        badgeShift: "Chịu được áp lực ca kíp",
+        badgeTeam: "Làm việc nhóm & Giao tiếp lịch thiệp",
+        badgeTime: "Đúng giờ, kỷ luật cao",
+        secTitleAbout: "Tóm Tắt Bản Thân & Mục Tiêu",
+        descAbout: "Tôi đã có hơn <strong>5 năm kinh nghiệm làm việc thực tế tại Đài Loan</strong>, bao gồm hơn 3 năm làm việc trong môi trường <strong>nhà máy sản xuất bán dẫn quy mô lớn</strong> (>500 nhân sự) và hơn 1 năm làm nhân viên bán hàng chuỗi cửa hàng tiện lợi <strong>Hi-Life (萊爾富)</strong>. Tôi nắm vững quy trình thao tác phòng sạch (Cleanroom), trang phục tĩnh điện ESD, đóng gói, kiểm tra ngoại quan sản phẩm và tuân thủ nghiêm ngặt tiêu chuẩn 5S. Khả năng giao tiếp tiếng Trung tốt, thái độ làm việc chăm chỉ, cẩn thận, có trách nhiệm cao, thích nghi nhanh với công việc theo ca và luôn sẵn sàng tăng ca khi công ty có nhu cầu.",
+        secTitleTarget: "Nguyện Vọng & Điều Kiện Làm Việc (希望職缺)",
+        lblTargetTitle: "Vị trí mong muốn (希望職稱)",
+        valTargetTitle: "Thao tác viên sản xuất (作業員) / Đóng gói (包裝員) / Phục vụ (餐飲服務生) / Nhân viên cây xăng (加油員)",
+        lblTargetType: "Hình thức & Ca làm việc",
+        valTargetType: "Toàn thời gian (全職) • Ca ngày (日班), Ca cuối tuần (假日班), sẵn sàng luân ca",
+        lblTargetArea: "Khu vực ưu tiên",
+        valTargetArea: "TP. Đào Viên - Khu Trung Lịch (桃園市中壢區) & các khu vực lân cận",
+        lblTargetSalary: "Mức lương & Ngày nhận việc",
+        valTargetSalary: "Lương thỏa thuận / Theo quy định công ty (依公司規定) • Có thể đi làm ngay sau trúng tuyển",
+        secTitleExp: "Kinh Nghiệm Làm Việc (工作經歷)",
+        exp1Role: "Thao Tác Viên Sản Xuất & Đóng Gói (作業員 / 包裝員)",
+        exp1Company: "Công ty Sản xuất Bán dẫn (半導體製造業)",
+        exp1Scale: "Quy mô >500 người",
+        exp1Loc: "Khu Trung Lịch, TP. Đào Viên",
+        exp1Date: "03/2021 - Hiện tại (Hơn 5 năm)",
+        exp1Desc: `
+          <li><strong>Môi trường làm việc:</strong> Thực hiện công việc trong phòng sạch (Cleanroom), mặc trang phục vô trùng và chống tĩnh điện ESD, tuân thủ nghiêm ngặt quy định an toàn vệ sinh lao động và tiêu chuẩn 5S.</li>
+          <li><strong>Vận hành máy móc:</strong> Thao tác máy móc trên dây chuyền sản xuất linh kiện vi mạch/bán dẫn theo đúng bảng hướng dẫn công việc chuẩn (SOP).</li>
+          <li><strong>Kiểm soát chất lượng:</strong> Kiểm tra ngoại quan sản phẩm (Visual Inspection), phát hiện và phân loại các sản phẩm lỗi, trầy xước hoặc không đạt chuẩn trước khi chuyển công đoạn tiếp theo.</li>
+          <li><strong>Đóng gói & Bàn giao:</strong> Thực hiện quy trình đếm số lượng, dán nhãn mã vạch (Barcode), đóng gói sản phẩm hoàn thiện vào khay/hộp chuyên dụng đảm bảo không xảy ra hư hại.</li>
+          <li><strong>Tính kỷ luật:</strong> Đảm bảo chỉ tiêu sản lượng (UPH) hàng ngày, phối hợp ăn ý với đồng nghiệp và báo cáo kịp thời cho trưởng ca khi xảy ra sự cố bất thường.</li>
+        `,
+        exp2Role: "Nhân Viên Bán Hàng & Thu Ngân (門市店員 / 專櫃人員)",
+        exp2Company: "Công ty CP Quốc tế Hi-Life (萊爾富國際股份有限公司)",
+        exp2Scale: "Chuỗi Bán lẻ Tiện lợi",
+        exp2Loc: "Khu Dương Mai, TP. Đào Viên",
+        exp2Date: "10/2019 - 02/2021 (1 năm 5 tháng)",
+        exp2Desc: `
+          <li><strong>Thu ngân & Thanh toán:</strong> Vận hành hệ thống máy tính tiền POS, xử lý thanh toán tiền mặt, thẻ EasyCard, ví điện tử, thanh toán hóa đơn tiện ích và nạp tiền nhanh chóng, chính xác.</li>
+          <li><strong>Dịch vụ khách hàng:</strong> Chào đón khách hàng bằng tiếng Trung thân thiện, tư vấn chương trình khuyến mãi, giải đáp thắc mắc và hỗ trợ khách hàng mua sắm.</li>
+          <li><strong>Quản lý hàng hóa:</strong> Tiếp nhận hàng nhập kho từ xe giao vận, kiểm đếm số lượng, sắp xếp bổ sung hàng lên kệ theo nguyên tắc nhập trước xuất trước (FIFO), kiểm tra hạn sử dụng (hàng hết hạn).</li>
+          <li><strong>Dịch vụ ăn uống:</strong> Pha chế cà phê (Hi Café), làm nóng thức ăn nhanh, nấu khoai lang nướng, châm nước canh oden đảm bảo an toàn vệ sinh thực phẩm.</li>
+          <li><strong>Giao nhận bưu kiện:</strong> Quản lý tiếp nhận bưu kiện thương mại điện tử (Shopee, Momo...), phân loại và trả bưu phẩm cho khách hàng đúng quy trình.</li>
+        `,
+        secTitleEdu: "Học Vấn (學歷)",
+        eduRole: "Tốt Nghiệp Trung Học Phổ Thông (高中畢業 - Ban Tự Nhiên / 自然組)",
+        eduSchool: "Trường Trung Học Phổ Thông tại Việt Nam (越南)",
+        eduDate: "09/2006 - 06/2018",
+        eduDesc: `
+          <li>Trình độ học vấn cao nhất: Tốt nghiệp Trung học phổ thông (高中普通科).</li>
+          <li>Chuyên ban: Tự nhiên (Toán, Vật lý, Hóa học, Sinh học).</li>
+          <li>Rèn luyện tư duy cẩn thận, logic và tinh thần ham học hỏi, cầu tiến.</li>
+        `,
+        secTitleStrengths: "Thế Mạnh Làm Việc",
+        str1Title: "Thao Tác Nhanh Nhẹn",
+        str1Desc: "Khéo tay, thao tác dây chuyền chuẩn xác, nắm bắt quy trình làm việc mới rất nhanh.",
+        str2Title: "Kỷ Luật & An Toàn",
+        str2Desc: "Nghiêm túc tuân thủ quy chuẩn phòng sạch, bảo hộ lao động và quy tắc an toàn công xưởng.",
+        str3Title: "Tiếng Trung Thực Tế",
+        str3Desc: "Giao tiếp tốt với cấp trên, đồng nghiệp Đài Loan và phục vụ khách hàng lịch thiệp.",
+        str4Title: "Sẵn Sàng Đi Làm Ngay",
+        str4Desc: "Có xe máy tự túc đi lại, sức khỏe dẻo dai, sẵn sàng làm ca ngày, ca kíp và tăng ca.",
+        btnEditText: "Sửa nhanh nội dung",
+        btnPrintText: "In / Xuất PDF"
+      },
+      zh: {
+        cvName: "林美金",
+        cvChineseName: "Lin Mei-jin (Mei Chin)",
+        cvRoleTitle: "作業員 • 門市人員",
+        secTitleContact: "基本資料 (個人資訊)",
+        lblGender: "性別 / 年齡:",
+        valGender: "女 (2000年生，26歲)",
+        lblLocation: "通訊地址:",
+        valLocation: "桃園市中壢區 協同街",
+        lblLicense: "駕照 / 交通工具:",
+        valLicense: "普通重型機車駕照，備有普通重型機車",
+        lblExperience: "總工作年資:",
+        valExperience: "5 ~ 6 年工作經歷",
+        lblJobStatus: "目前狀態:",
+        valJobStatus: "在職中 (錄取後可隨時到職)",
+        lblPhone: "聯絡電話:",
+        valPhone: "(點擊快速編輯以填寫台灣聯絡手機)",
+        lblEmail: "電子郵件:",
+        valEmail: "(點擊快速編輯以填寫常用信箱)",
+        secTitleLang: "語言能力 (Language)",
+        lang1Name: "越文 (越南語)",
+        lang1Sub: "母語 (聽說讀寫精通)",
+        lang1Level: "精通",
+        lang2Name: "中文 (國語)",
+        lang2Sub: "在台工作生活5年以上，溝通順暢",
+        lang2Level: "良好 / 流利",
+        secTitleSkills: "專長技能與職能",
+        lblSkillProd: "生產製造與產線",
+        badgeCleanroom: "無塵室作業規範 (Cleanroom)",
+        badgeESD: "靜電防護與無塵服 (ESD)",
+        badgeOper: "產線機台操作 (作業員)",
+        badgePack: "成品包裝與點檢 (包裝員)",
+        badge5S: "5S現場管理與工安守則",
+        badgeQC: "產品目檢與外觀檢驗 (QC)",
+        lblSkillRetail: "門市服務與銷售",
+        badgePOS: "POS收銀與結帳作業",
+        badgeStock: "進貨點收、補貨與陳列排面",
+        badgeCS: "親切顧客服務與接待應對",
+        badgeFood: "現煮咖啡/熱食/微波熟食料理",
+        badgeParcel: "EC網購包裹寄取件處理",
+        lblSkillSoft: "工作態度與特質",
+        badgeCareful: "手腳俐落、細心耐勞、責任感強",
+        badgeShift: "適應輪班與配合加班作業",
+        badgeTeam: "具團隊合作與良好溝通素養",
+        badgeTime: "出勤穩定、守時且服從主管安排",
+        secTitleAbout: "自我介紹與求職動機",
+        descAbout: "在台灣已累積超過 <strong>5~6 年扎實工作經驗</strong>，包含在 <strong>半導體製造業（500人以上規模大廠）</strong> 擔任作業員3年以上，以及於 <strong>萊爾富便利商店</strong> 擔任門市人員1年5個月。熟悉無塵室作業規範、穿戴防靜電衣作業、機台操作、產品外觀目檢及包裝出貨程序，並落實5S環境維護。中文聽說表達流暢，工作態度認真負責、手腳俐落、細心且抗壓性高。能穩定配合日班、假日班或產線輪班加班安排，具自備機車交通工具，期盼能加入貴公司穩定貢獻！",
+        secTitleTarget: "希望應徵條件 (Job Condition)",
+        lblTargetTitle: "希望職稱:",
+        valTargetTitle: "作業員 / 包裝員 / 餐飲服務生 / 加油員",
+        lblTargetType: "工作性質與時段:",
+        valTargetType: "全職工作 • 日班、假日班、可配合輪班",
+        lblTargetArea: "希望工作地點:",
+        valTargetArea: "桃園市中壢區及周邊臨近地區",
+        lblTargetSalary: "希望待遇與可上班日:",
+        valTargetSalary: "月薪依公司規定 • 錄取後隨時可上班 (隨時到職)",
+        secTitleExp: "工作經歷 (Experience)",
+        exp1Role: "作業員 / 包裝員 (全職)",
+        exp1Company: "半導體製造業 (500人以上規模大廠)",
+        exp1Scale: "500人以上公司",
+        exp1Loc: "桃園市中壢區",
+        exp1Date: "2021年3月 - 至今 (在職中 / 3年以上)",
+        exp1Desc: `
+          <li><strong>無塵室環境作業：</strong>全程於無塵室環境作業，熟稔穿戴防靜電連身無塵服（ESD），嚴格遵守現場標準安全衛生與5S管理規範。</li>
+          <li><strong>產線機台操作：</strong>依標準作業程序書（SOP）操作各站製程機台，穩定維持每日生產目標與進度（UPH）。</li>
+          <li><strong>產品外觀目視檢驗：</strong>細心檢視半導體晶圓/封測成品外觀瑕疵、刮傷及異物，確認無不良品流入下站。</li>
+          <li><strong>成品計數與標籤包裝：</strong>依出貨工單點收產品數量、條碼標籤黏貼、專用防震盒裝填與打包，確保運輸防護完整。</li>
+          <li><strong>團隊協作與回報：</strong>恪守工作紀律，遇有設備警報或異常狀況第一時間向領班組長通報，具極佳團隊配合度。</li>
+        `,
+        exp2Role: "門市店員 / 專櫃人員 (全職)",
+        exp2Company: "萊爾富國際股份有限公司 (Hi-Life)",
+        exp2Scale: "便利商店零售業",
+        exp2Loc: "桃園市楊梅區",
+        exp2Date: "2019年10月 - 2021年2月 (1年5個月)",
+        exp2Desc: `
+          <li><strong>POS收銀結帳：</strong>操作POS收銀機進行現金、悠遊卡、行動支付結帳，並協助顧客代收水電瓦斯路邊停車費及各類加值服務。</li>
+          <li><strong>親切顧客應對：</strong>以流暢中文禮貌迎送顧客、介紹當期促銷優惠，親切解答商品相關詢問。</li>
+          <li><strong>進銷存與陳列排面：</strong>點收物流進店商品、依先進先出（FIFO）原則補齊貨架商品、調整排面整潔並每日查驗有效期限（過期品下架）。</li>
+          <li><strong>熱食與咖啡製作：</strong>調製Hi Café現煮咖啡、烤地瓜熟成控管、熱狗蒸包機補料及關東煮食材熬煮，嚴格維護衛生。</li>
+          <li><strong>EC包裹寄取作業：</strong>處理蝦皮、momo等網購包裹進出庫建檔、條碼掃描刷讀及顧客取件核對身分證件。</li>
+        `,
+        secTitleEdu: "學歷資料 (Education)",
+        eduRole: "高中普通科 畢業 (自然組)",
+        eduSchool: "越南當地高中 (越南 國外學歷)",
+        eduDate: "2006年9月 - 2018年6月",
+        eduDesc: `
+          <li>最高學歷：國外高中學校 普通科畢業。</li>
+          <li>修習專長：自然組（數理科學基礎）。</li>
+          <li>培養踏實求知態度、條理思維與耐心專注之個人特質。</li>
+        `,
+        secTitleStrengths: "個人核心優勢",
+        str1Title: "手腳俐落敏捷",
+        str1Desc: "手指靈巧敏捷，產線製程與手工作業精確度高，學習新機台速度快。",
+        str2Title: "落實工安紀律",
+        str2Desc: "嚴格遵守無塵室SOP，注重自我保護與設備防護，出勤紀律優良。",
+        str3Title: "在台中文流暢",
+        str3Desc: "在台生活工作5年，中文聽說無障礙，與主管同仁溝通親和融洽。",
+        str4Title: "交通自理到職快",
+        str4Desc: "備有重型機車駕照與機車，能獨立準時通勤，錄取隨時可配合上線。",
+        btnEditText: "快速編輯內容",
+        btnPrintText: "列印 / 匯出PDF"
+      }
+    };
+
+    let currentLang = 'vi';
+
+    // Hàm chuyển đổi ngôn ngữ
+    function switchLanguage(lang) {
+      currentLang = lang;
+      const data = contentData[lang];
+
       document.getElementById('btnVi').classList.toggle('active', lang === 'vi');
       document.getElementById('btnZh').classList.toggle('active', lang === 'zh');
+
       // Cập nhật văn bản
       for (const [key, val] of Object.entries(data)) {
         const el = document.getElementById(key);
@@ -13,21 +1237,26 @@
       }
       document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'vi';
     }
+
     // Đổi màu chủ đạo
     function setTheme(primary, dark, light, border) {
       document.documentElement.style.setProperty('--primary', primary);
       document.documentElement.style.setProperty('--primary-dark', dark);
+      document.documentElement.style.setProperty('--primary-light', light);
       document.documentElement.style.setProperty('--primary-border', border);
     }
-    // B&#7853;t/t&#7855;t ch&#7871; &#273;&#7897; s&#7917;a tr&#7921;c ti&#7871;p
+
     // Bật/tắt chế độ sửa trực tiếp
     let isEditing = false;
     function toggleEditMode() {
       isEditing = !isEditing;
+      const content = document.getElementById('resumeContent');
+      const btn = document.getElementById('editToggleBtn');
+      const indicator = document.getElementById('editIndicator');
+
       if (isEditing) {
         content.setAttribute('contenteditable', 'true');
         btn.classList.add('active');
-        btn.innerHTML = '<i class="fa-solid fa-check"></i> L&#432;u & Kh&#243;a ch&#7881;nh s&#7917;a';
         btn.innerHTML = currentLang === 'vi' 
           ? '<i class="fa-solid fa-check"></i> Lưu & Khóa chỉnh sửa' 
           : '<i class="fa-solid fa-check"></i> 儲存並鎖定';
@@ -35,7 +1264,6 @@
       } else {
         content.removeAttribute('contenteditable');
         btn.classList.remove('active');
-        btn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> S&#7917;a nhanh n&#7897;i dung';
         btn.innerHTML = currentLang === 'vi'
           ? '<i class="fa-solid fa-pen-to-square"></i> <span id="btnEditText">Sửa nhanh nội dung</span>'
           : '<i class="fa-solid fa-pen-to-square"></i> <span id="btnEditText">快速編輯內容</span>';
@@ -45,19 +1273,3 @@
   </script>
 </body>
 </html>
-
-    
-    
-  
-
-
-Notification PreferencesChoose whether to be notified when the agent needs your attention or completes a task.
-      
-
-   
-     
-
-    
-
-   
-  
