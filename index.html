@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lâm Mỹ Kim (林美金 / Mei Chin) - Trang Cá Nhân & Hồ Sơ Ứng Tuyển</title>
+  <title>Lâm Mỹ Kim (林美金 / Mei Chin) - Trang Cá Nhân & Triển Lãm Dự Án</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
@@ -15,6 +15,8 @@
       --primary-light: #e0f2fe;
       --accent: #059669;
       --accent-light: #d1fae5;
+      --amber: #d97706;
+      --amber-light: #fef3c7;
       --dark: #0f172a;
       --gray-900: #1e293b;
       --gray-700: #334155;
@@ -51,7 +53,7 @@
 
     /* Container */
     .container {
-      max-width: 1140px;
+      max-width: 1160px;
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -61,7 +63,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--gray-200);
@@ -84,15 +86,16 @@
     }
 
     .brand-avatar {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid var(--primary);
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.2);
     }
 
     .brand-text h1 {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1.2;
@@ -107,21 +110,28 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 22px;
       list-style: none;
     }
 
     .nav-link {
       text-decoration: none;
       color: var(--gray-700);
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: 0.88rem;
+      font-weight: 700;
       transition: var(--transition);
       position: relative;
     }
 
     .nav-link:hover {
       color: var(--primary);
+    }
+
+    .nav-link.highlight {
+      color: var(--primary-dark);
+      background: var(--primary-light);
+      padding: 4px 10px;
+      border-radius: 6px;
     }
 
     .nav-actions {
@@ -192,20 +202,11 @@
       transform: translateY(-1px);
     }
 
-    .btn-success {
-      background: var(--accent);
-      color: var(--white);
-    }
-    .btn-success:hover {
-      background: #047857;
-      transform: translateY(-1px);
-    }
-
     /* Hero Section */
     .hero {
       padding: 60px 0 70px;
-      background: radial-gradient(circle at 10% 20%, rgba(2, 132, 199, 0.06) 0%, transparent 60%),
-                  radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.05) 0%, transparent 60%);
+      background: radial-gradient(circle at 10% 20%, rgba(2, 132, 199, 0.08) 0%, transparent 60%),
+                  radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.06) 0%, transparent 60%);
       border-bottom: 1px solid var(--gray-200);
     }
 
@@ -405,7 +406,7 @@
     }
 
     .section-heading {
-      font-size: 2rem;
+      font-size: 2.15rem;
       font-weight: 800;
       color: var(--dark);
       letter-spacing: -0.02em;
@@ -415,12 +416,235 @@
       font-size: 0.95rem;
       color: var(--gray-500);
       margin-top: 6px;
-      max-width: 600px;
+      max-width: 650px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    /* Job Condition Cards */
+    /* Projects / Showcase Section */
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .filter-btn {
+      padding: 8px 18px;
+      border-radius: 30px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      color: var(--gray-700);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .filter-btn.active {
+      background: var(--primary-dark);
+      color: var(--white);
+      border-color: var(--primary-dark);
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 26px;
+    }
+
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: #bae6fd;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .project-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .project-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--gray-100);
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .project-kpi-box {
+      background: linear-gradient(135deg, #f0fdf4, #e0f2fe);
+      border: 1px solid #bbf7d0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .project-kpi-icon {
+      color: var(--accent);
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .project-kpi-text {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #065f46;
+      line-height: 1.35;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--gray-700);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .project-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--gray-100);
+    }
+
+    .project-skill-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: var(--gray-100);
+      color: var(--gray-700);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* Modal Details */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--white);
+      max-width: 650px;
+      width: 100%;
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gray-100);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--gray-700);
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      background: var(--gray-200);
+    }
+
+    /* Preferences Section */
     .pref-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -478,7 +702,7 @@
       color: var(--gray-500);
     }
 
-    /* Experience Timeline */
+    /* Timeline */
     .timeline {
       display: flex;
       flex-direction: column;
@@ -728,9 +952,9 @@
       color: var(--gray-500);
     }
 
-    /* Modal / Print Friendly */
+    /* Print Friendly */
     @media print {
-      .navbar, .hero-actions, .cta-section, .lang-switcher {
+      .navbar, .hero-actions, .cta-section, .lang-switcher, .filter-tabs {
         display: none !important;
       }
       body {
@@ -772,9 +996,10 @@
       <nav>
         <ul class="nav-links">
           <li><a href="#about" class="nav-link" id="navLinkAbout">Giới Thiệu</a></li>
-          <li><a href="#preferences" class="nav-link" id="navLinkPref">Nguyện Vọng</a></li>
+          <li><a href="#projects" class="nav-link highlight" id="navLinkProj"><i class="fa-solid fa-trophy"></i> Triển Lãm Dự Án</a></li>
           <li><a href="#experience" class="nav-link" id="navLinkExp">Kinh Nghiệm</a></li>
           <li><a href="#skills" class="nav-link" id="navLinkSkills">Kỹ Năng</a></li>
+          <li><a href="#preferences" class="nav-link" id="navLinkPref">Nguyện Vọng</a></li>
           <li><a href="#education" class="nav-link" id="navLinkEdu">Học Vấn</a></li>
         </ul>
       </nav>
@@ -813,8 +1038,8 @@
         </p>
 
         <div class="hero-actions">
-          <a href="#preferences" class="btn btn-primary" id="heroBtnPref">
-            <i class="fa-solid fa-briefcase"></i> <span>Xem Nguyện Vọng Việc Làm</span>
+          <a href="#projects" class="btn btn-primary" id="heroBtnProj">
+            <i class="fa-solid fa-trophy"></i> <span>Xem Triển Lãm Dự Án</span>
           </a>
           <a href="https://pda.104.com.tw/profile/share/gy5rruUGl8pMuGpytkreUsxHZbQNLokr" target="_blank" class="btn btn-secondary" id="heroBtn104">
             <i class="fa-solid fa-arrow-up-right-from-square"></i> <span>Hồ Sơ 104 人力銀行</span>
@@ -885,43 +1110,181 @@
     </div>
   </section>
 
-  <!-- Preferences Section -->
-  <section class="section section-alt" id="preferences">
+  <!-- PROJECT EXHIBITION & ACHIEVEMENTS SECTION (TRIỂN LÃM KẾT QUẢ DỰ ÁN) -->
+  <section class="section section-alt" id="projects">
     <div class="container">
       <div class="section-title-wrap">
-        <span class="section-tag" id="tagPref">Job Conditions</span>
-        <h3 class="section-heading" id="headingPref">Nguyện Vọng & Điều Kiện Làm Việc (希望職缺)</h3>
-        <p class="section-subheading" id="subPref">Sẵn sàng cống hiến lâu dài, tinh thần trách nhiệm cao và chấp hành kỷ luật nhà máy.</p>
+        <span class="section-tag" id="tagShowcase">PORTFOLIO & SHOWCASE</span>
+        <h3 class="section-heading" id="headingShowcase">Triển Lãm Kết Quả Dự Án & Thành Tựu Thực Tế</h3>
+        <p class="section-subheading" id="subShowcase">
+          Minh chứng năng lực vận hành thực tế qua các dự án sản xuất bán dẫn công nghệ cao và tối ưu dịch vụ chuỗi cửa hàng tiện lợi tại Đài Loan.
+        </p>
       </div>
 
-      <div class="pref-grid">
-        <div class="pref-card">
-          <div class="pref-icon"><i class="fa-solid fa-id-badge"></i></div>
-          <span class="pref-label" id="lblPrefRole">Vị trí mong muốn (希望職稱)</span>
-          <p class="pref-value" id="valPrefRole">Thao tác viên sản xuất (作業員) / Đóng gói (包裝員) / Phục vụ (餐飲服務) / Cây xăng (加油員)</p>
-          <p class="pref-note" id="notePrefRole">Ưu tiên sản xuất công nghiệp hoặc dịch vụ</p>
+      <!-- Filter tabs -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" onclick="filterProjects('all', this)" id="tabAll">
+          <i class="fa-solid fa-border-all"></i> <span id="lblTabAll">Tất Cả (全部)</span>
+        </button>
+        <button class="filter-btn" onclick="filterProjects('semi', this)" id="tabSemi">
+          <i class="fa-solid fa-microchip"></i> <span id="lblTabSemi">Sản Xuất Bán Dẫn</span>
+        </button>
+        <button class="filter-btn" onclick="filterProjects('retail', this)" id="tabRetail">
+          <i class="fa-solid fa-shop"></i> <span id="lblTabRetail">Dịch Vụ Bán Lẻ Hi-Life</span>
+        </button>
+        <button class="filter-btn" onclick="filterProjects('quality', this)" id="tabQuality">
+          <i class="fa-solid fa-shield-halved"></i> <span id="lblTabQuality">Kiểm Soát QC & 5S</span>
+        </button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid" id="projectsGrid">
+        
+        <!-- Dự án 1 -->
+        <div class="project-card" data-category="semi quality">
+          <div>
+            <div class="project-top">
+              <span class="project-badge"><i class="fa-solid fa-bolt"></i> <span id="p1Badge">Bán Dẫn / Cleanroom</span></span>
+              <div class="project-icon-box"><i class="fa-solid fa-microchip"></i></div>
+            </div>
+            <h4 class="project-title" id="p1Title">Tối Ưu Hóa Dây Chuyền Phòng Sạch & Đạt 105% Năng Suất (UPH)</h4>
+            
+            <div class="project-kpi-box">
+              <i class="fa-solid fa-award project-kpi-icon"></i>
+              <div class="project-kpi-text" id="p1Kpi">
+                105% Chỉ Tiêu UPH • 0 Lỗi Tĩnh Điện ESD • 100% Tuân Thủ SOP
+              </div>
+            </div>
+
+            <p class="project-desc" id="p1Desc">
+              Thực hiện quy trình vận hành máy móc trên dây chuyền vi mạch bán dẫn, tối ưu thời gian luân chuyển khay linh kiện giữa các trạm máy và áp dụng trang phục phòng sạch chống tĩnh điện tuyệt đối.
+            </p>
+          </div>
+
+          <div class="project-skills">
+            <span class="project-skill-pill">Cleanroom Class 1000</span>
+            <span class="project-skill-pill">ESD Protection</span>
+            <span class="project-skill-pill">Máy Dây Chuyền SOP</span>
+            <span class="project-skill-pill">5S Tiêu Chuẩn</span>
+          </div>
         </div>
 
-        <div class="pref-card">
-          <div class="pref-icon"><i class="fa-solid fa-clock"></i></div>
-          <span class="pref-label" id="lblPrefShift">Hình thức & Ca làm việc</span>
-          <p class="pref-value" id="valPrefShift">Toàn thời gian (全職) • Ca ngày (日班), Ca cuối tuần (假日班)</p>
-          <p class="pref-note" id="notePrefShift">Sẵn sàng luân ca và tăng ca theo kế hoạch sản xuất</p>
+        <!-- Dự án 2 -->
+        <div class="project-card" data-category="retail">
+          <div>
+            <div class="project-top">
+              <span class="project-badge"><i class="fa-solid fa-box-archive"></i> <span id="p2Badge">Logistics EC / Bán Lẻ</span></span>
+              <div class="project-icon-box"><i class="fa-solid fa-boxes-packing"></i></div>
+            </div>
+            <h4 class="project-title" id="p2Title">Quy Trình Quản Lý & Nhận Trả Bưu Kiện EC Nhanh Dưới 30 Giây</h4>
+            
+            <div class="project-kpi-box">
+              <i class="fa-solid fa-stopwatch project-kpi-icon"></i>
+              <div class="project-kpi-text" id="p2Kpi">
+                &lt; 30 Giây Trả Hàng Cho Khách • 100% Khớp Mã Bưu Kiện EC
+              </div>
+            </div>
+
+            <p class="project-desc" id="p2Desc">
+              Tái quy hoạch phân khu kho bưu kiện Shopee, Momo tại cửa hàng Hi-Life theo 3 chữ số đuôi điện thoại. Giúp việc tìm kiếm và bàn giao hàng diễn ra trong tích tắc, giải tỏa hoàn toàn áp lực nghẽn quầy giờ cao điểm.
+            </p>
+          </div>
+
+          <div class="project-skills">
+            <span class="project-skill-pill">Quản Lý Kho Hàng</span>
+            <span class="project-skill-pill">Thu Ngân POS</span>
+            <span class="project-skill-pill">Tiếng Trung Giao Tiếp</span>
+            <span class="project-skill-pill">Phục Vụ Khách Hàng</span>
+          </div>
         </div>
 
-        <div class="pref-card">
-          <div class="pref-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-          <span class="pref-label" id="lblPrefLoc">Khu vực làm việc ưu tiên</span>
-          <p class="pref-value" id="valPrefLoc">TP. Đào Viên - Khu Trung Lịch (桃園市中壢區)</p>
-          <p class="pref-note" id="notePrefLoc">Và các khu vực lân cận (Bình Trấn, Dương Mai...)</p>
+        <!-- Dự án 3 -->
+        <div class="project-card" data-category="semi quality">
+          <div>
+            <div class="project-top">
+              <span class="project-badge"><i class="fa-solid fa-magnifying-glass"></i> <span id="p3Badge">QC Ngoại Quan & Đóng Gói</span></span>
+              <div class="project-icon-box"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            </div>
+            <h4 class="project-title" id="p3Title">Kiểm Tra Ngoại Quan (Visual QC) & Đóng Gói Xuất Khẩu Không Lỗi</h4>
+            
+            <div class="project-kpi-box">
+              <i class="fa-solid fa-circle-check project-kpi-icon"></i>
+              <div class="project-kpi-text" id="p3Kpi">
+                &gt; 99.8% Tỷ Lệ Đạt Chuẩn • 0 Khiếu Nại Đóng Gói Xuất Khẩu
+              </div>
+            </div>
+
+            <p class="project-desc" id="p3Desc">
+              Kiểm tra ngoại quan tỉ mỉ các linh kiện bán dẫn dưới đèn chuyên dụng, kịp thời phát hiện vi nứt hoặc trầy xước bề mặt. Đóng gói bảo vệ chống sốc, hút chân không và dán mã vạch Barcode chuẩn xác 100%.
+            </p>
+          </div>
+
+          <div class="project-skills">
+            <span class="project-skill-pill">Visual Inspection (QC)</span>
+            <span class="project-skill-pill">Quét Mã Barcode</span>
+            <span class="project-skill-pill">Đóng Gói Hút Chân Không</span>
+            <span class="project-skill-pill">Cẩn Thận Tỉ Mỉ</span>
+          </div>
         </div>
 
-        <div class="pref-card">
-          <div class="pref-icon"><i class="fa-solid fa-calendar-check"></i></div>
-          <span class="pref-label" id="lblPrefDate">Mức lương & Ngày nhận việc</span>
-          <p class="pref-value" id="valPrefDate">Theo quy định công ty (依公司規定) • Đi làm ngay</p>
-          <p class="pref-note" id="notePrefDate">錄取後隨時可上班 (Có thể nhận việc ngay lập tức)</p>
+        <!-- Dự án 4 -->
+        <div class="project-card" data-category="retail">
+          <div>
+            <div class="project-top">
+              <span class="project-badge"><i class="fa-solid fa-mug-hot"></i> <span id="p4Badge">Dịch Vụ F&B / Cà Phê</span></span>
+              <div class="project-icon-box"><i class="fa-solid fa-utensils"></i></div>
+            </div>
+            <h4 class="project-title" id="p4Title">Quản Lý Quầy Ẩm Thực Hi Café & Đảm Bảo Vệ Sinh An Toàn Thực Phẩm</h4>
+            
+            <div class="project-kpi-box">
+              <i class="fa-solid fa-arrow-trend-up project-kpi-icon"></i>
+              <div class="project-kpi-text" id="p4Kpi">
+                Tăng 25% Sản Lượng Cà Phê • Đạt Chuẩn Vệ Sinh Cửa Hàng Loại A
+              </div>
+            </div>
+
+            <p class="project-desc" id="p4Desc">
+              Tối ưu thời gian pha chế cà phê máy, nướng khoai lang mật đúng độ thơm ngon và giữ nóng món oden chuẩn nhiệt độ. Giới thiệu combo điểm tâm sáng nhiệt tình bằng tiếng Trung giúp doanh số tăng trưởng mạnh.
+            </p>
+          </div>
+
+          <div class="project-skills">
+            <span class="project-skill-pill">Pha Chế Hi Café</span>
+            <span class="project-skill-pill">An Toàn Vệ Sinh TP</span>
+            <span class="project-skill-pill">Bán Hàng Trực Tiếp</span>
+            <span class="project-skill-pill">Quản Lý Hạn Sử Dụng</span>
+          </div>
         </div>
+
+        <!-- Dự án 5 -->
+        <div class="project-card" data-category="quality semi">
+          <div>
+            <div class="project-top">
+              <span class="project-badge"><i class="fa-solid fa-shield-halved"></i> <span id="p5Badge">5S & An Toàn Lao Động</span></span>
+              <div class="project-icon-box"><i class="fa-solid fa-helmet-safety"></i></div>
+            </div>
+            <h4 class="project-title" id="p5Title">Duy Trì Hiện Trường 5S & Cam Kết 5 Năm An Toàn Tuyệt Đối</h4>
+            
+            <div class="project-kpi-box">
+              <i class="fa-solid fa-shield-heart project-kpi-icon"></i>
+              <div class="project-kpi-text" id="p5Kpi">
+                100% Đạt Chuẩn 5S Phân Xưởng • 5+ Năm Không Tai Nạn Lao Động
+              </div>
+            </div>
+
+            <p class="project-desc" id="p5Desc">
+              Thực hiện sàng lọc, sắp xếp công cụ dụng cụ vào vị trí quy định, vệ sinh thiết bị sạch sẽ trước và sau mỗi ca trực. Nghiêm túc chấp hành nội quy xưởng, được quản lý người Đài Loan đánh giá cao tính kỷ luật.
+            </p>
+          </div>
+
+          <div class="project-skills">
+            <span class="project-skill-pill">Tiêu Chuẩn 5S</span>
+            <span class="project-skill-pill">An Toàn Lao Động</span>
+            <span class="project-skill-pill">Ý Thức Kỷ Luật Cao</span>
+            <span class="project-skill-pill">Đúng Giờ Tuyệt Đối</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1041,8 +1404,49 @@
     </div>
   </section>
 
+  <!-- Preferences Section -->
+  <section class="section" id="preferences">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag" id="tagPref">Job Conditions</span>
+        <h3 class="section-heading" id="headingPref">Nguyện Vọng & Điều Kiện Làm Việc (希望職缺)</h3>
+        <p class="section-subheading" id="subPref">Sẵn sàng cống hiến lâu dài, tinh thần trách nhiệm cao và chấp hành kỷ luật nhà máy.</p>
+      </div>
+
+      <div class="pref-grid">
+        <div class="pref-card">
+          <div class="pref-icon"><i class="fa-solid fa-id-badge"></i></div>
+          <span class="pref-label" id="lblPrefRole">Vị trí mong muốn (希望職稱)</span>
+          <p class="pref-value" id="valPrefRole">Thao tác viên sản xuất (作業員) / Đóng gói (包裝員) / Phục vụ (餐飲服務) / Cây xăng (加油員)</p>
+          <p class="pref-note" id="notePrefRole">Ưu tiên sản xuất công nghiệp hoặc dịch vụ</p>
+        </div>
+
+        <div class="pref-card">
+          <div class="pref-icon"><i class="fa-solid fa-clock"></i></div>
+          <span class="pref-label" id="lblPrefShift">Hình thức & Ca làm việc</span>
+          <p class="pref-value" id="valPrefShift">Toàn thời gian (全職) • Ca ngày (日班), Ca cuối tuần (假日班)</p>
+          <p class="pref-note" id="notePrefShift">Sẵn sàng luân ca và tăng ca theo kế hoạch sản xuất</p>
+        </div>
+
+        <div class="pref-card">
+          <div class="pref-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+          <span class="pref-label" id="lblPrefLoc">Khu vực làm việc ưu tiên</span>
+          <p class="pref-value" id="valPrefLoc">TP. Đào Viên - Khu Trung Lịch (桃園市中壢區)</p>
+          <p class="pref-note" id="notePrefLoc">Và các khu vực lân cận (Bình Trấn, Dương Mai...)</p>
+        </div>
+
+        <div class="pref-card">
+          <div class="pref-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <span class="pref-label" id="lblPrefDate">Mức lương & Ngày nhận việc</span>
+          <p class="pref-value" id="valPrefDate">Theo quy định công ty (依公司規定) • Đi làm ngay</p>
+          <p class="pref-note" id="notePrefDate">錄取後隨時可上班 (Có thể nhận việc ngay lập tức)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Strengths Grid -->
-  <section class="section">
+  <section class="section section-alt">
     <div class="container">
       <div class="section-title-wrap">
         <span class="section-tag" id="tagStr">Why Choose Me</span>
@@ -1075,7 +1479,7 @@
   </section>
 
   <!-- Education Section -->
-  <section class="section section-alt" id="education">
+  <section class="section" id="education">
     <div class="container">
       <div class="section-title-wrap">
         <span class="section-tag" id="tagEdu">Education</span>
@@ -1134,24 +1538,45 @@
     </div>
   </footer>
 
-  <!-- Script: Song ngữ Tiếng Việt & 繁體中文 -->
+  <!-- Script: Song ngữ Tiếng Việt & 繁體中文 + Lọc Dự án -->
   <script>
+    // Bộ lọc danh mục triển lãm dự án
+    function filterProjects(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        if (cat === 'all') {
+          card.style.display = 'flex';
+        } else {
+          const categories = card.getAttribute('data-category').split(' ');
+          if (categories.includes(cat)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+    }
+
     const i18n = {
       vi: {
         navBrandName: "Lâm Mỹ Kim",
         navBrandSub: "林美金 • Portfolio & CV",
         navLinkAbout: "Giới Thiệu",
-        navLinkPref: "Nguyện Vọng",
+        navLinkProj: "<i class='fa-solid fa-trophy'></i> Triển Lãm Dự Án",
         navLinkExp: "Kinh Nghiệm",
         navLinkSkills: "Kỹ Năng",
+        navLinkPref: "Nguyện Vọng",
         navLinkEdu: "Học Vấn",
         navBtnPrint: "In / PDF",
         heroBadgeText: "Sẵn sàng nhận việc • 錄取可隨時到職",
         heroTitle: "Xin chào, tôi là <br><span class='name-highlight'>Lâm Mỹ Kim (林美金)</span>",
         heroSubtitle: "Thao Tác Viên Sản Xuất Bán Dẫn & Nhân Viên Bán Lẻ tại Đài Loan",
         heroDesc: "Hơn <strong>5 năm kinh nghiệm làm việc thực tế tại Đài Loan</strong>. Chuyên nghiệp trong môi trường nhà máy sản xuất bán dẫn công nghệ cao (quy mô >500 người) và chuỗi cửa hàng tiện lợi Hi-Life. Thành thạo quy trình phòng sạch Cleanroom, trang phục chống tĩnh điện ESD, kiểm tra ngoại quan linh kiện, máy POS thu ngân và giao tiếp tiếng Trung lưu loát.",
-        heroBtnPref: "<span>Xem Nguyện Vọng Việc Làm</span>",
-        heroBtn104: "<span>Hồ Sơ 104 人力銀行</span>",
+        heroBtnProj: "<i class='fa-solid fa-trophy'></i> <span>Xem Triển Lãm Dự Án</span>",
+        heroBtn104: "<i class='fa-solid fa-arrow-up-right-from-square'></i> <span>Hồ Sơ 104 人力銀行</span>",
         statExpNum: "5+ Năm",
         statExpLabel: "Thâm niên tại Đài Loan",
         statScaleNum: "> 500",
@@ -1168,6 +1593,33 @@
         cardValLicense: "Bằng lái xe máy hạng nặng & có xe riêng (普通重型機車)",
         cardLblLang: "Ngoại ngữ:",
         cardValLang: "Tiếng Việt (Mẹ đẻ) • Tiếng Trung (Tốt)",
+        tagShowcase: "PORTFOLIO & SHOWCASE",
+        headingShowcase: "Triển Lãm Kết Quả Dự Án & Thành Tựu Thực Tế",
+        subShowcase: "Minh chứng năng lực vận hành thực tế qua các dự án sản xuất bán dẫn công nghệ cao và tối ưu dịch vụ chuỗi cửa hàng tiện lợi tại Đài Loan.",
+        lblTabAll: "Tất Cả (全部)",
+        lblTabSemi: "Sản Xuất Bán Dẫn",
+        lblTabRetail: "Dịch Vụ Bán Lẻ Hi-Life",
+        lblTabQuality: "Kiểm Soát QC & 5S",
+        p1Badge: "Bán Dẫn / Cleanroom",
+        p1Title: "Tối Ưu Hóa Dây Chuyền Phòng Sạch & Đạt 105% Năng Suất (UPH)",
+        p1Kpi: "105% Chỉ Tiêu UPH • 0 Lỗi Tĩnh Điện ESD • 100% Tuân Thủ SOP",
+        p1Desc: "Thực hiện quy trình vận hành máy móc trên dây chuyền vi mạch bán dẫn, tối ưu thời gian luân chuyển khay linh kiện giữa các trạm máy và áp dụng trang phục phòng sạch chống tĩnh điện tuyệt đối.",
+        p2Badge: "Logistics EC / Bán Lẻ",
+        p2Title: "Quy Trình Quản Lý & Nhận Trả Bưu Kiện EC Nhanh Dưới 30 Giây",
+        p2Kpi: "< 30 Giây Trả Hàng Cho Khách • 100% Khớp Mã Bưu Kiện EC",
+        p2Desc: "Tái quy hoạch phân khu kho bưu kiện Shopee, Momo tại cửa hàng Hi-Life theo 3 chữ số đuôi điện thoại. Giúp việc tìm kiếm và bàn giao hàng diễn ra trong tích tắc, giải tỏa hoàn toàn áp lực nghẽn quầy giờ cao điểm.",
+        p3Badge: "QC Ngoại Quan & Đóng Gói",
+        p3Title: "Kiểm Tra Ngoại Quan (Visual QC) & Đóng Gói Xuất Khẩu Không Lỗi",
+        p3Kpi: "> 99.8% Tỷ Lệ Đạt Chuẩn • 0 Khiếu Nại Đóng Gói Xuất Khẩu",
+        p3Desc: "Kiểm tra ngoại quan tỉ mỉ các linh kiện bán dẫn dưới đèn chuyên dụng, kịp thời phát hiện vi nứt hoặc trầy xước bề mặt. Đóng gói bảo vệ chống sốc, hút chân không và dán mã vạch Barcode chuẩn xác 100%.",
+        p4Badge: "Dịch Vụ F&B / Cà Phê",
+        p4Title: "Quản Lý Quầy Ẩm Thực Hi Café & Đảm Bảo Vệ Sinh An Toàn Thực Phẩm",
+        p4Kpi: "Tăng 25% Sản Lượng Cà Phê • Đạt Chuẩn Vệ Sinh Cửa Hàng Loại A",
+        p4Desc: "Tối ưu thời gian pha chế cà phê máy, nướng khoai lang mật đúng độ thơm ngon và giữ nóng món oden chuẩn nhiệt độ. Giới thiệu combo điểm tâm sáng nhiệt tình bằng tiếng Trung giúp doanh số tăng trưởng mạnh.",
+        p5Badge: "5S & An Toàn Lao Động",
+        p5Title: "Duy Trì Hiện Trường 5S & Cam Kết 5 Năm An Toàn Tuyệt Đối",
+        p5Kpi: "100% Đạt Chuẩn 5S Phân Xưởng • 5+ Năm Không Tai Nạn Lao Động",
+        p5Desc: "Thực hiện sàng lọc, sắp xếp công cụ dụng cụ vào vị trí quy định, vệ sinh thiết bị sạch sẽ trước và sau mỗi ca trực. Nghiêm túc chấp hành nội quy xưởng, được quản lý người Đài Loan đánh giá cao tính kỷ luật.",
         tagPref: "Job Conditions",
         headingPref: "Nguyện Vọng & Điều Kiện Làm Việc (希望職缺)",
         subPref: "Sẵn sàng cống hiến lâu dài, tinh thần trách nhiệm cao và chấp hành kỷ luật nhà máy.",
@@ -1257,7 +1709,7 @@
         `,
         ctaTitle: "Liên Hệ Phỏng Vấn & Nhận Việc",
         ctaDesc: "Tôi luôn sẵn sàng tham gia phỏng vấn và tiếp nhận công việc mới tại khu vực Đào Viên (Trung Lịch, Bình Trấn, Dương Mai...). Hãy liên hệ với tôi qua hồ sơ trực tuyến hoặc tải bản CV PDF!",
-        ctaBtn104: "<span>Xem Hồ Sơ 104 人力銀行</span>",
+        ctaBtn104: "<i class='fa-solid fa-address-card'></i> <span>Xem Hồ Sơ 104 人力銀行</span>",
         ctaBtnPrint: "Tải / In Hồ Sơ PDF",
         footerText: "© 2026 <strong>Lâm Mỹ Kim (林美金 / Mei Chin)</strong> • Hồ sơ trực tuyến được lưu trữ trên GitHub Pages."
       },
@@ -1265,17 +1717,18 @@
         navBrandName: "林美金",
         navBrandSub: "Lin Mei-jin • 個人履歷官網",
         navLinkAbout: "關於我",
-        navLinkPref: "希望職缺",
+        navLinkProj: "<i class='fa-solid fa-trophy'></i> 專案與成果展",
         navLinkExp: "工作經歷",
         navLinkSkills: "專業技能",
+        navLinkPref: "希望職缺",
         navLinkEdu: "學歷背景",
         navBtnPrint: "列印 / PDF",
         heroBadgeText: "在職中 • 錄取後可隨時到職上班",
         heroTitle: "您好，我是 <br><span class='name-highlight'>林美金 (Lin Mei-jin)</span>",
         heroSubtitle: "在台半導體製造業作業員 • 門市服務專員",
         heroDesc: "在台累積超過 <strong>5~6年扎實工作經驗</strong>。曾任職於 <strong>500人以上半導體大廠</strong> 擔任產線作業員3年以上，以及於 <strong>萊爾富便利商店</strong> 擔任門市人員。精通無塵室作業規範、穿戴防靜電衣、機台操作、產品外觀目視檢驗、POS收銀服務，中文聽說溝通流暢，抗壓性高且出勤穩定。",
-        heroBtnPref: "<span>查看希望應徵條件</span>",
-        heroBtn104: "<span>104 人力銀行履歷</span>",
+        heroBtnProj: "<i class='fa-solid fa-trophy'></i> <span>瀏覽專案成果展</span>",
+        heroBtn104: "<i class='fa-solid fa-arrow-up-right-from-square'></i> <span>104 人力銀行履歷</span>",
         statExpNum: "5~6 年",
         statExpLabel: "在台工作總年資",
         statScaleNum: "500人+",
@@ -1292,6 +1745,33 @@
         cardValLicense: "普通重型機車駕照，自備機車通勤",
         cardLblLang: "語言能力:",
         cardValLang: "越語 (母語精通) • 國語/中文 (良好流暢)",
+        tagShowcase: "PORTFOLIO & SHOWCASE",
+        headingShowcase: "專案成果展與工作實績 (Portfolio)",
+        subShowcase: "匯總在台灣高科技半導體無塵室產線與知名連鎖超商之第一線卓越工作績效。",
+        lblTabAll: "全部成果",
+        lblTabSemi: "半導體產線",
+        lblTabRetail: "萊爾富門市",
+        lblTabQuality: "品檢QC與5S",
+        p1Badge: "半導體 / 無塵室",
+        p1Title: "半導體無塵室產線效能優化與突破 105% 產能目標 (UPH)",
+        p1Kpi: "達成 105% UPH 產出 • 0 靜電防護疏失 • 100% 遵從 SOP",
+        p1Desc: "負責晶圓/封測產線機台標準操作，優化載盤移轉工序時間，全程落實防靜電無塵服作業規範，出勤穩定零事故。",
+        p2Badge: "網購EC / 門市服務",
+        p2Title: "EC網購包裹 30 秒快速取件流程與收銀動線優化",
+        p2Kpi: "< 30秒 快速完成取件 • 100% 網購條碼正確對應零漏件",
+        p2Desc: "重新整頓萊爾富門市蝦皮、momo包裹倉儲，按手機後三碼分區放置，大幅縮短顧客尖峰時段排隊等候取件時間。",
+        p3Badge: "外觀品檢 / 封裝出貨",
+        p3Title: "封測成品外觀目視檢驗 (Visual QC) 與零瑕疵出口包裝",
+        p3Kpi: "> 99.8% 檢驗良率 • 0 客戶包裝投訴 (Zero Complaints)",
+        p3Desc: "於檢驗工作檯在專業光源下細緻檢驗晶片微小刮痕與瑕疵，精準刷讀條碼貼標，並使用防震抽真空專用盒包裝。",
+        p4Badge: "餐飲調製 / 鮮食銷售",
+        p4Title: "Hi Café 現煮咖啡推廣與熱食衛生安全自主管理專案",
+        p4Kpi: "早晨咖啡銷量增長 25% • 門市定期衛生檢核評等 A 級",
+        p4Desc: "熟練操作義式咖啡機，嚴格控制烤地瓜與關東煮新鮮度與熟成度，以流暢中文主動推薦早餐組合，深獲熟客喜愛。",
+        p5Badge: "工安與現場5S",
+        p5Title: "落實 5S 現場管理與連續 5 年以上零工安事故承諾",
+        p5Kpi: "100% 達成廠區 5S 評比 • 5+ 年保持安全零災害紀錄",
+        p5Desc: "每日落實整理、整頓、清掃、清潔與素養，工具物料歸位明確，嚴守廠區個人防護裝備，獲主管同仁肯定。",
         tagPref: "Job Conditions",
         headingPref: "希望應徵條件 (Job Condition)",
         subPref: "出勤紀錄優良、配合度高、服從主管調度與產線安排。",
@@ -1381,7 +1861,7 @@
         `,
         ctaTitle: "歡迎預約面試與洽詢",
         ctaDesc: "目前在職中，錄取後可隨時到職上班！誠摯期盼能加入貴公司團隊穩定貢獻。歡迎透過104人力銀行或線上查閱個人檔案。",
-        ctaBtn104: "<span>前往 104 人力銀行查看</span>",
+        ctaBtn104: "<i class='fa-solid fa-address-card'></i> <span>前往 104 人力銀行查看</span>",
         ctaBtnPrint: "匯出 / 列印 PDF 檔案",
         footerText: "© 2026 <strong>林美金 (Lin Mei-jin / Mei Chin)</strong> • 本個人網站託管於 GitHub Pages。"
       }
@@ -1397,7 +1877,7 @@
       for (const [key, val] of Object.entries(data)) {
         const el = document.getElementById(key);
         if (el) {
-          if (key.endsWith('List') || key === 'heroTitle' || key === 'heroDesc' || key.startsWith('heroBtn') || key.startsWith('ctaBtn') || key === 'cardValLoc') {
+          if (key.endsWith('List') || key === 'heroTitle' || key === 'heroDesc' || key.startsWith('heroBtn') || key.startsWith('ctaBtn') || key === 'cardValLoc' || key === 'navLinkProj') {
             el.innerHTML = val;
           } else {
             el.textContent = val;
