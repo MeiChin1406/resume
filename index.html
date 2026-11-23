@@ -19,6 +19,9 @@
   <!-- Chart.js CDN for interactive visual exhibition -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+  <!-- AI Talking Avatar Digital Resume Chatbot Widget Styles -->
+  <link rel="stylesheet" href="avatar-widget.css">
+
   <style>
     /* ==========================================================================
        DESIGN SYSTEM & THEME TOKENS
@@ -1734,7 +1737,10 @@
         </p>
 
         <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary" id="heroBtnProj">
+          <button type="button" class="btn btn-primary" id="heroBtnAvatar" onclick="window.MeiChinAvatar && window.MeiChinAvatar.open()" style="cursor: pointer;">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> <span>Trò Chuyện Với AI Avatar</span>
+          </button>
+          <a href="#projects" class="btn btn-secondary" id="heroBtnProj">
             <i class="fa-solid fa-chart-column"></i> <span>Xem Triển Lãm Biểu Đồ Dự Án</span>
           </a>
           <a href="https://pda.104.com.tw/profile/share/gy5rruUGl8pMuGpytkreUsxHZbQNLokr" target="_blank" class="btn btn-secondary" id="heroBtn104">
@@ -2665,6 +2671,7 @@
         heroTitle: "Xin chào, tôi là <br><span class='name-highlight'>Lâm Mỹ Kim (林美金)</span>",
         heroSubtitle: "Thao Tác Viên Sản Xuất Bán Dẫn & Nhân Viên Bán Lẻ tại Đài Loan",
         heroDesc: "Hơn <strong>5 năm kinh nghiệm làm việc thực tế tại Đài Loan</strong>. Chuyên nghiệp trong môi trường nhà máy sản xuất bán dẫn công nghệ cao (quy mô >500 người) và chuỗi cửa hàng tiện lợi Hi-Life. Thành thạo quy trình phòng sạch Cleanroom, trang phục chống tĩnh điện ESD, kiểm tra ngoại quan linh kiện, máy POS thu ngân và giao tiếp tiếng Trung lưu loát.",
+        heroBtnAvatar: "<i class='fa-solid fa-wand-magic-sparkles'></i> <span>Trò Chuyện Với AI Avatar</span>",
         heroBtnProj: "<i class='fa-solid fa-chart-column'></i> <span>Xem Triển Lãm Biểu Đồ Dự Án</span>",
         heroBtn104: "<i class='fa-solid fa-arrow-up-right-from-square'></i> <span>Hồ Sơ 104 人力銀行</span>",
         statExpNum: "5+ Năm",
@@ -2831,6 +2838,7 @@
         heroTitle: "您好，我是 <br><span class='name-highlight'>林美金 (Lin Mei-jin)</span>",
         heroSubtitle: "在台半導體製造業作業員 • 門市服務專員",
         heroDesc: "在台累積超過 <strong>5~6年扎實工作經驗</strong>。曾任職於 <strong>500人以上半導體大廠</strong> 擔任產線作業員3年以上，以及於 <strong>萊爾富便利商店</strong> 擔任門市人員。精通無塵室作業規範、穿戴防靜電衣、機台操作、產品外觀目視檢驗、POS收銀服務，中文聽說溝通流暢，抗壓性高且出勤穩定。",
+        heroBtnAvatar: "<i class='fa-solid fa-wand-magic-sparkles'></i> <span>與 AI 語音化身對話</span>",
         heroBtnProj: "<i class='fa-solid fa-chart-column'></i> <span>瀏覽成果圖表展示</span>",
         heroBtn104: "<i class='fa-solid fa-arrow-up-right-from-square'></i> <span>104 人力銀行履歷</span>",
         statExpNum: "5~6 年",
@@ -3039,5 +3047,8 @@
       initCharts('vi');
     });
   </script>
+
+  <!-- AI Talking Avatar Digital Resume Chatbot Widget Script -->
+  <script src="avatar-widget.js"></script>
 </body>
 </html>
